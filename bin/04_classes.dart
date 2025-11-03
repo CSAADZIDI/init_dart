@@ -105,6 +105,15 @@ class Cat extends Animal {
   void makeSound() => print("$name : Miaou!");
 }
 
+  class AnimalEx {
+    String name;
+
+    AnimalEx(this.name);
+
+    String cry() {
+      return "";
+    }
+  }
 
 void main() {
   // Création d’un objet Person
@@ -154,6 +163,7 @@ void main() {
   // Créez une sous-classe Chien qui redéfinit `cry()` -> "Ouaf!".
   //
   // Instanciez-la et affichez son cri.
+
 
 
 }

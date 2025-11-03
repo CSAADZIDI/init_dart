@@ -115,6 +115,24 @@ class UserProfile {
 // 🧩 EXERCICE
 // ---------------------------------------------------------------------------
 // 1) Ajouter 3 essais max pour le mot de passe.
+  int attempts = 0;
+  while (attempts < 3) {
+    stdout.write("Enter password: ");
+    final password = stdin.readLineSync();
+
+    if (await auth.checkCredentials(username, password)) {
+      print("Access granted.");
+      break;
+    } else {
+      print("Access denied.");
+      attempts++;
+    }
+  }
+  if (attempts == 3) {
+    print("Too many failed attempts.");
+    exit(1);
+  }
+
 // 2) Stocker des utilisateurs dans une Map<String, String> et vérifier contre elle.
 // 3) Après login, boucle de commandes : [1] Voir profil, [2] Changer rôle, [3] Quit.
 //

@@ -102,12 +102,23 @@ void main() {
   // ---------------------------------------------------------------------------
   // 1️⃣ Demander à l’utilisateur son nom et son âge
   //     → utiliser stdout.write et stdin.readLineSync()
+
+  stdout.write("Quel est ton nom ? ");
+  String? nom = stdin.readLineSync();
+  stdout.write("Quel est ton âge ? ");
+  String? ageInput = stdin.readLineSync();
+  int age_e = int.parse(ageInput!);
   //
   // 2️⃣ Afficher :
   //     "Bonjour <nom>, tu auras <âge+1> ans l’année prochaine."
+  print("Bonjour $nom, tu auras ${age_e + 1} ans l'année prochaine.");
   //
   // 3️⃣ Si âge < 18 → "Mineur"
   //     Sinon → "Majeur"
+  if (age_e  < 18) {
+    print("Mineur");
+  } else {
+    print("Majeur");
+  }
 
-  
 }

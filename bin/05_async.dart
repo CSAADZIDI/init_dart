@@ -112,10 +112,20 @@ Future<void> main() async {
   // 🧩 EXERCICE
   // -------------------------------------------------------------------------
   // Implémente une fonction `fetchUser(name)` qui :
+  Future<String> fetchUser(String name) async {
+    print("Chargement $name...");
+    await Future.delayed(Duration(seconds: 2));
+    return "Utilisateur($name)";
+  }
   //  1) affiche "Chargement <name>..."
+
   //  2) attend 2 secondes
+
   //  3) retourne "Utilisateur(<name>)"
+
   //  4) Dans main(), appelle-la avec `await` et affiche le résultat.
+  final user = await fetchUser("Alice");
+  print("Résultat : $user");  
 
 
 }

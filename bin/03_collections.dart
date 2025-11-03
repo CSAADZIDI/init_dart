@@ -136,6 +136,15 @@ void main() {
   //    - la valeur maximale
   //    - une nouvelle liste avec chaque nombre au carré (n*n)
   //
+  final numbers = [1, 2, 3, 4, 5];
+  final pairs = numbers.where((n) => n.isEven).toList();
+  final max = numbers.reduce((a, b) => a > b ? a : b);
+  final squares = numbers.map((n) => n * n).toList();
+
+  print("Pairs: $pairs");
+  print("Max: $max");
+  print("Squares: $squares");
+
   // 2) Construire une Map<String, int> comptant le nombre d’occurrences
   //    de chaque mot dans : "hello hello dart is fun fun"
   //
@@ -145,5 +154,13 @@ void main() {
   //    - carré : map((n) => n * n)
   //    - comptage : split(" ") puis fold sur une Map
 
-  
+  final text = "hello hello dart is fun fun";
+  final words = text.split(" ");
+
+  final wordCount = words.fold<Map<String, int>>({}, (acc, word) {
+    acc[word] = (acc[word] ?? 0) + 1;
+    return acc;
+  });
+
+  print("Word count: $wordCount");
 }

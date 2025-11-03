@@ -78,12 +78,15 @@ void main() {
   print(describePerson(age: null, name: null)); // aucun renseignement
   print(describePerson());                      // les deux omis
 
+  // Appel nouvelle fonction exercice
+  print(describePerson2(name: "Alice", age: 25)); // Alice a
+
   // Variable potentiellement nulle
   String? maybe = null;
   print(lenOrZero(maybe));       // 0 car null
   maybe = "dart";
   print(lenOrZero(maybe));       // 4 (longueur de "dart")
-
+}
   // -------------------------------------------------------------------------
   // 🧠 À RETENIR
   // - [] → paramètres positionnels optionnels
@@ -95,10 +98,20 @@ void main() {
 
   // 🧩 Exercice :
   // Crée une fonction `describePerson2({String? name, int? age})`
+  String describePerson2({String? name, int? age}) {
   // qui retourne une chaîne selon ces cas :
   // - nom et âge présents :  "<name> a <age> ans."
   // - seulement nom :        "<name>, âge inconnu."
   // - seulement âge :        "Âge: <age>, nom inconnu."
   // - ni nom ni âge :        "Personne inconnue."
-  
-}
+    if (name != null && age != null) {
+      return "$name a $age ans.";
+    } else if (name != null) {
+      return "$name, âge inconnu.";
+    } else if (age != null) {
+      return "Âge: $age, nom inconnu.";
+    } else {
+      return "Personne inconnue.";
+    }
+
+  }
